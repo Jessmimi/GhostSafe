@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Design/MenuTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Unbenanntes_Projekt 4.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Interface/Pause.gd" type="Script" id=3]
+
+[node name="Pause" type="Control"]
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+margin_left = 289.0
+margin_top = 196.0
+margin_right = 709.0
+margin_bottom = 407.0
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/Panel"]
+margin_left = -4.0
+margin_right = 420.0
+margin_bottom = 111.0
+theme = ExtResource( 1 )
+text = "Weiter"
+
+[node name="MainMenuButton" type="Button" parent="CanvasLayer/Panel"]
+margin_left = 2.0
+margin_top = 114.0
+margin_right = 418.0
+margin_bottom = 207.0
+theme = ExtResource( 1 )
+text = "Main Menu"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 374.0
+margin_top = 79.0
+margin_right = 573.0
+margin_bottom = 162.0
+theme = ExtResource( 1 )
+text = "Pause"
+
+[node name="UnbenanntesProjekt4" type="Sprite" parent="."]
+position = Vector2( 525, 302 )
+scale = Vector2( 0.142241, 0.142241 )
+texture = ExtResource( 2 )
+
+[connection signal="pressed" from="CanvasLayer/Panel/ContinueButton" to="." method="_on_ContinueButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/MainMenuButton" to="." method="_on_MainMenuButton_pressed"]

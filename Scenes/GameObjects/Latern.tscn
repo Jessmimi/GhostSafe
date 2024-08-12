@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/GameObjects/latern_red.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/GameObjects/Latern.gd" type="Script" id=2]
+[ext_resource path="res://Assets/lightTexture/light_smooth.png" type="Texture" id=3]
+[ext_resource path="res://Assets/GameObjects/latern_blue.png" type="Texture" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 263.008
+
+[node name="Latern" type="Area2D" groups=["Latern"]]
+position = Vector2( 0, 3 )
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+modulate = Color( 0.929412, 0.643137, 1, 1 )
+shape = SubResource( 1 )
+
+[node name="Light" type="Light2D" parent="."]
+texture = ExtResource( 3 )
+texture_scale = 3.52
+
+[node name="normalLatern" type="Sprite" parent="."]
+position = Vector2( -3411, -1081 )
+scale = Vector2( 0.0442427, 0.0442427 )
+texture = ExtResource( 1 )
+offset = Vector2( 77097.5, 24433.4 )
+
+[node name="ghostLatern" type="Sprite" parent="."]
+visible = false
+position = Vector2( -3411, -1081 )
+scale = Vector2( 0.0442427, 0.0442427 )
+texture = ExtResource( 4 )
+offset = Vector2( 77097.5, 24433.4 )
+
+[connection signal="body_entered" from="." to="." method="_on_Latern_body_entered"]

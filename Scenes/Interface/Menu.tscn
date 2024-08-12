@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Design/MenuTheme.tres" type="Theme" id=1]
+[ext_resource path="res://Design/MenuFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Scripts/Interface/Menu.gd" type="Script" id=3]
+[ext_resource path="res://Assets/Background/GhostWorld.png" type="Texture" id=4]
+
+[node name="Menu" type="Control"]
+margin_left = 1.0
+margin_right = 1.0
+script = ExtResource( 3 )
+
+[node name="GhostWorld" type="Sprite" parent="."]
+position = Vector2( 450, 296 )
+scale = Vector2( 0.161089, 0.157747 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 168.0
+margin_top = 49.0
+margin_right = 816.0
+margin_bottom = 138.0
+theme = ExtResource( 1 )
+text = "Feast of the Ghosts"
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 285.0
+margin_top = 209.0
+margin_right = 695.0
+margin_bottom = 485.0
+
+[node name="StartButton" type="Button" parent="Panel"]
+margin_left = -1.0
+margin_right = 409.0
+margin_bottom = 89.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Start"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CreditsButton" type="Button" parent="Panel"]
+margin_left = -2.0
+margin_top = 90.0
+margin_right = 409.0
+margin_bottom = 179.0
+theme = ExtResource( 1 )
+text = "Credits"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="EndButton" type="Button" parent="Panel"]
+margin_left = 1.0
+margin_top = 182.0
+margin_right = 409.0
+margin_bottom = 272.0
+theme = ExtResource( 1 )
+text = "End"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="pressed" from="Panel/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="Panel/CreditsButton" to="." method="_on_CreditsButton_pressed"]
+[connection signal="pressed" from="Panel/EndButton" to="." method="_on_EndButton_pressed"]
